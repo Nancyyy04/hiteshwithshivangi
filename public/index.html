@@ -298,6 +298,11 @@
       .names { font-size: clamp(3.4rem, 15.5vw, 5rem); }
       .hero-kicker { margin-bottom: .2rem; }
     }
+    /* Phones: stack the names straight down the middle instead of staggering them */
+    @media (max-width: 767px) {
+      .hero-names { width: 100%; padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right)); }
+      .names .n1, .names .n2 { transform: none; }
+    }
     @media (min-width: 768px) {
       .names { font-size: clamp(5rem, 9.5vw, 9rem); }
       .hero-names { padding-top: 9vh; }
@@ -419,6 +424,7 @@
     .closing-names { margin: clamp(.8rem, 3vh, 1.6rem) 0 0; line-height: .95; font-size: clamp(3.6rem, 16vw, 7.4rem); color: var(--maroon); text-shadow: 0 0 20px rgba(255, 244, 240, .95), 0 0 6px rgba(255, 244, 240, .9); }
     .closing-names .n1 { display: block; transform: translateX(-.3em); }
     .closing-names .n2 { display: block; transform: translateX(.3em); margin-top: -.06em; }
+    @media (max-width: 767px) { .closing-names .n1, .closing-names .n2 { transform: none; } }
     @media (min-width: 768px) { .closing-inner { padding-top: 21vh; } .closing-names { font-size: clamp(4.4rem, 8vw, 7.6rem); } }
 
     /* =====================================================================
