@@ -117,6 +117,7 @@
       transform: translateX(-50%) scale(1);
       transform-origin: 50% 52%;
       transition: transform 3.3s var(--ease-royal) .9s;
+      will-change: transform; backface-visibility: hidden;
     }
     /* Doorway opening — matches the transparent arch in opening-arch-frame.png */
     .door-wrap {
@@ -144,11 +145,11 @@
       background-size: 200% 100%; background-repeat: no-repeat;
       backface-visibility: hidden; will-change: transform;
       box-shadow: inset 0 0 30px rgba(120, 60, 40, .25);
-      transition: transform 2.7s var(--ease-royal) .45s, filter 2.7s ease .45s;
+      transition: transform 2.7s var(--ease-royal) .45s;
     }
     .door-left  { left: 0;  background-position: 0 0;    transform-origin: 0 50%; }
     .door-right { right: 0; background-position: 100% 0; transform-origin: 100% 50%; }
-    .door-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(60, 20, 20, .55), rgba(60, 20, 20, 0)); opacity: 0; transition: opacity 2.7s ease .45s; }
+    .door-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(60, 20, 20, .62), rgba(60, 20, 20, .14)); opacity: 0; transition: opacity 2.7s ease .45s; }
     .door-right .door-shade { background: linear-gradient(-90deg, rgba(60, 20, 20, .55), rgba(60, 20, 20, 0)); }
     /* Golden seam of light between the closed doors */
     .seam { position: absolute; left: 50%; top: 4%; bottom: 4%; width: 2px; transform: translateX(-50%); background: linear-gradient(to bottom, transparent, rgba(255, 236, 190, .9), transparent); filter: blur(1px); opacity: .0; transition: opacity .6s ease .2s; }
@@ -208,8 +209,8 @@
     /* --- Opening sequence (class added on tap) --- */
     #intro.opening .plaque { opacity: 0; transform: translate(-50%, -50%) scale(.86); pointer-events: none; }
     #intro.opening .seam { opacity: 1; }
-    #intro.opening .door-left  { transform: rotateY(84deg); filter: brightness(.82); }
-    #intro.opening .door-right { transform: rotateY(-84deg); filter: brightness(.82); }
+    #intro.opening .door-left  { transform: rotateY(84deg); }
+    #intro.opening .door-right { transform: rotateY(-84deg); }
     #intro.opening .door-shade { opacity: 1; }
     #intro.opening .curtain-left  { transform: translateX(-118%) skewX(-4deg) scaleX(.9); }
     #intro.opening .curtain-right { transform: translateX(118%) skewX(4deg) scaleX(.9); }
@@ -220,6 +221,12 @@
     #intro.opening .light-spill { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     #intro.opening .light-flood { opacity: 1; }
     #intro.done { opacity: 0; visibility: hidden; }
+    /* Phones: skip the costly blend-mode light rays; keep everything else on the GPU */
+    @media (max-width: 767px) {
+      .rays { display: none; }
+      .light-spill { mix-blend-mode: normal; background: radial-gradient(circle, rgba(255, 232, 190, .6), rgba(255, 214, 160, .16) 45%, transparent 70%); }
+      .light-spill, .light-flood, .curtain, .beyond img { will-change: transform, opacity; }
+    }
 
     /* =====================================================================
        2. HERO — Hitesh & Shivangi
@@ -236,20 +243,44 @@
     .names .n1 { display: block; transform: translateX(-.35em); }
     .names .n2 { display: block; transform: translateX(.35em); margin-top: -.08em; }
     .names .amp { font-size: .82em; }
+    /* Gold shimmer: a copy of the names on top, filled only with a moving highlight */
+    .names { position: relative; }
+    .names-sheen { position: absolute; inset: 0; pointer-events: none; text-shadow: none; }
+    .names-sheen .n1, .names-sheen .n2 {
+      color: transparent; -webkit-text-fill-color: transparent;
+      background: linear-gradient(105deg, transparent 40%, rgba(214, 170, 92, .85) 46%, rgba(255, 240, 200, .95) 50%, rgba(214, 170, 92, .85) 54%, transparent 60%);
+      background-size: 300% 100%; background-position: 100% 0; background-repeat: no-repeat;
+      -webkit-background-clip: text; background-clip: text;
+      animation: name-shimmer 6.5s ease-in-out 3s infinite;
+    }
+    .names-sheen .n2 { animation-delay: 3.35s; }
+    @keyframes name-shimmer { 0% { background-position: 100% 0; } 45%, 100% { background-position: 0% 0; } }
+    .hero-kicker { margin: 0 0 clamp(.3rem, 1.4vh, .8rem); font-family: 'Cinzel', serif; font-size: clamp(.68rem, 2.9vw, .9rem); letter-spacing: .26em; text-transform: uppercase; color: var(--maroon); text-shadow: 0 0 12px rgba(255, 243, 236, 1), 0 0 4px rgba(255, 243, 236, .95); }
+    .hero-tagline { margin: clamp(.4rem, 1.4vh, .8rem) 0 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 4.4vw, 1.35rem); color: var(--maroon); text-shadow: 0 0 14px rgba(255, 243, 236, 1), 0 0 5px rgba(255, 243, 236, .95); }
     .hero-names .divider { margin-top: clamp(.6rem, 2vh, 1.2rem); }
-    .hero-in-el { opacity: 0; filter: blur(6px); transform: translateY(14px); transition: opacity 1.6s ease, filter 1.6s ease, transform 1.6s var(--ease-royal); }
+    .hero-in-el { opacity: 0; transform: translate3d(0, 16px, 0); transition: opacity 1.6s ease, transform 1.6s var(--ease-royal); }
+    @media (min-width: 768px) { .hero-in-el { filter: blur(6px); transition: opacity 1.6s ease, filter 1.6s ease, transform 1.6s var(--ease-royal); } }
     .hero-in-el.d2 { transition-delay: .45s; }
     body.hero-in #hero .bg-art { opacity: 1; transform: none; }
     body.hero-in .hero-in-el { opacity: 1; filter: none; transform: none; transition-delay: .55s; }
+    body.hero-in .hero-in-el.d0 { transition-delay: .25s; }
     body.hero-in .hero-in-el.d2 { transition-delay: 1.05s; }
+    body.hero-in .hero-in-el.d3 { transition-delay: 1.45s; }
+    @media (max-width: 767px) and (max-height: 700px) {
+      .hero-names { padding-top: 9svh; }
+      .names { font-size: clamp(3.4rem, 15.5vw, 5rem); }
+      .hero-kicker { margin-bottom: .2rem; }
+    }
     @media (min-width: 768px) {
       .names { font-size: clamp(5rem, 9.5vw, 9rem); }
       .hero-names { padding-top: 9vh; }
     }
 
-    .scroll-cue { position: absolute; bottom: 4.5svh; left: 50%; transform: translateX(-50%); z-index: 4; width: 22px; height: 36px; border: 1.5px solid rgba(107, 34, 54, .55); border-radius: 12px; opacity: 0; transition: opacity 1s ease 2.2s; }
-    .scroll-cue::after { content: ''; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--maroon); animation: cue 2s ease-in-out infinite; }
-    body.hero-in .scroll-cue { opacity: .8; }
+    .scroll-hint { position: absolute; bottom: calc(3.5svh + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 4; display: flex; flex-direction: column; align-items: center; gap: .55rem; opacity: 0; transition: opacity 1s ease 2.2s; pointer-events: none; }
+    .scroll-text { white-space: nowrap; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(.85rem, 3.6vw, 1rem); letter-spacing: .03em; color: #fbefd9; background: rgba(90, 22, 40, .55); border: 1px solid rgba(220, 196, 149, .55); border-radius: 999px; padding: .32rem .95rem; box-shadow: 0 4px 14px rgba(40, 8, 20, .25); }
+    .scroll-cue { position: relative; display: block; width: 22px; height: 36px; border: 1.5px solid rgba(251, 239, 217, .85); border-radius: 12px; background: rgba(90, 22, 40, .35); }
+    .scroll-cue::after { content: ''; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: #fbefd9; animation: cue 2s ease-in-out infinite; }
+    body.hero-in .scroll-hint { opacity: .95; }
     @keyframes cue { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
 
     /* =====================================================================
@@ -259,7 +290,10 @@
     .inv-arch { position: relative; z-index: 4; width: min(90vw, 500px); padding: clamp(5.4rem, 25vw, 8.4rem) clamp(1.6rem, 8vw, 3.4rem) clamp(2.4rem, 7vw, 3.4rem); text-align: center; }
     .inv-arch > svg.arch-shape { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; z-index: -1; }
     .inv-message { font-size: clamp(1.02rem, 4.2vw, 1.3rem); line-height: 1.85; color: var(--maroon); margin: 1.1rem 0 0; font-weight: 400; }
-    .inv-hosts { margin-top: 1.3rem; font-size: clamp(1.22rem, 5.2vw, 1.6rem); line-height: 1.6; font-weight: 600; color: var(--wine); letter-spacing: .01em; }
+    .inv-blessing { margin: .9rem 0 0; font-family: 'Cinzel', serif; font-size: clamp(.66rem, 2.8vw, .82rem); letter-spacing: .2em; text-transform: uppercase; color: var(--maroon-soft); }
+    .inv-message { margin-top: .7rem; }
+    .inv-from { margin: 1.2rem 0 0; font-style: italic; font-size: clamp(.92rem, 3.8vw, 1.08rem); color: var(--maroon-soft); }
+    .inv-hosts { margin-top: .35rem; font-size: clamp(1.22rem, 5.2vw, 1.6rem); line-height: 1.6; font-weight: 600; color: var(--wine); letter-spacing: .01em; }
     .kalash { width: 56px; height: 40px; margin: 0 auto; display: block; }
     .inv-bottom { position: absolute; left: 0; right: 0; bottom: 0; height: clamp(170px, 30vw, 360px); z-index: 1; -webkit-mask-image: linear-gradient(to top, #000 62%, transparent); mask-image: linear-gradient(to top, #000 62%, transparent); }
     .inv-bottom img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
@@ -366,6 +400,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .floral.sway, .rays, .plaque::after, .scroll-cue::after, .scratch-hint { animation: none !important; }
+      .names-sheen { display: none; }
       .reveal { transition-duration: .01s; transform: none; }
       .intro-stage, .curtain, .door, .door-shade, .beyond img, .beyond-glow, .rays, .light-flood, .light-spill { transition-duration: .9s !important; transition-delay: 0s !important; }
       .light-flood { transition-delay: .7s !important; }
@@ -535,7 +570,7 @@
         <svg class="plaque-orn top" aria-hidden="true"><use href="#orn-crest" /></svg>
         <span class="plaque-body">TAP TO OPEN</span>
         <svg class="plaque-orn bottom" aria-hidden="true"><use href="#orn-crest" /></svg>
-        <span class="plaque-music" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 17.5V5.8l11-2.3v11.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="2.6"/><circle cx="17.5" cy="15.2" r="2.6"/></svg>with music</span>
+        <span class="plaque-music" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5 h3.5 L12 5.5 v13 L7.5 14.5 H4Z" fill="currentColor"/><path d="M15.5 9 a4 4 0 0 1 0 6"/><path d="M18.2 6.5 a7.6 7.6 0 0 1 0 11"/></svg>Turn your sound on</span>
       </button>
     </div>
 
@@ -573,13 +608,19 @@
       </div>
 
       <div class="hero-names">
+        <p class="hero-kicker hero-in-el d0">Bound by a thread of love</p>
         <h1 class="names font-script hero-in-el">
           <span class="n1">Hitesh <span class="amp">&amp;</span></span>
           <span class="n2">Shivangi</span>
+          <span class="names-sheen" aria-hidden="true"><span class="n1">Hitesh <span class="amp">&amp;</span></span><span class="n2">Shivangi</span></span>
         </h1>
         <svg class="divider hero-in-el d2" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
+        <p class="hero-tagline hero-in-el d3">Two hearts, one promise,<br />a forever that begins with you</p>
       </div>
-      <span class="scroll-cue" aria-hidden="true"></span>
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-text">Scroll down to unfold our story</span>
+        <span class="scroll-cue"></span>
+      </div>
       <div class="fade-bottom"></div>
     </section>
 
@@ -616,10 +657,12 @@
           <circle cx="28" cy="27" r="1.6" fill="#b8925a" />
         </svg>
 
-        <p class="inv-message">With hearts full of joy, we invite you to join us as we celebrate the beginning of a beautiful new chapter.</p>
+        <p class="inv-blessing">With the blessings of the Almighty</p>
+        <p class="inv-message">Two families, one joyful celebration. With hearts full of love, we warmly invite you and your family to bless the couple as they step into their forever together.</p>
 
         <svg class="divider" style="margin-top:1.4rem;width:min(200px,58%)" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
 
+        <p class="inv-from">With love &amp; warm regards</p>
         <p class="inv-hosts">Mr. Vikas Chhibber<br />Mrs. Bhavna Chhibber</p>
       </div>
 
@@ -643,7 +686,7 @@
 
       <div class="save-inner">
         <h2 class="save-title font-script reveal">Save the Date</h2>
-        <p class="save-sub reveal d1">Scratch to reveal</p>
+        <p class="save-sub reveal d1">Scratch the heart to reveal our special day</p>
 
         <div class="heart-wrap reveal d2" id="heartWrap">
           <!-- Revealed layer: ivory heart with the date -->
@@ -693,7 +736,7 @@
       <div class="fade-top"></div>
 
       <div class="count-inner">
-        <h2 class="count-title reveal">The Celebration Begins In</h2>
+        <h2 class="count-title reveal">Counting Down to Our Forever</h2>
         <svg class="divider reveal d1" style="margin-top:.9rem" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
 
         <div class="count-row reveal d2" id="countRow" role="timer" aria-live="off">
@@ -809,7 +852,7 @@
       <div class="fade-top"></div>
 
       <div class="closing-inner">
-        <p class="closing-line reveal">We can't wait to<br />celebrate with you.</p>
+        <p class="closing-line reveal">Your presence will make<br />our day complete.</p>
         <svg class="divider reveal d1" style="margin-top:1rem;width:min(190px,50vw)" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
         <h2 class="closing-names font-script reveal d2">
           <span class="n1">Hitesh &amp;</span>
@@ -1035,7 +1078,7 @@
         action: 'TEMPLATE',
         text: 'Wedding Reception · Hitesh & Shivangi',
         dates: '20261128T133000Z/20261128T173000Z',
-        details: 'With hearts full of joy, we invite you to celebrate with us. 7:00 PM onwards.',
+        details: 'With hearts full of love, we warmly invite you to bless Hitesh & Shivangi. 7:00 PM onwards.',
         location: 'Hotel Golden Orchid, Kalka Chowk, New Vita Enclave Road, Ambala City, Haryana, India',
       });
       cal.href = 'https://calendar.google.com/calendar/render?' + q.toString();

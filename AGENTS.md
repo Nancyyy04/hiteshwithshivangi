@@ -14,3 +14,4 @@ A static site with no build step. Netlify publishes `public/` (see `netlify.toml
 - Add to Calendar uses the `.ics` file on Apple devices and swaps to a Google Calendar URL everywhere else (small IIFE in the script).
 - Layout units use `svh`, `clamp()` and `env(safe-area-inset-*)` for phones. Keep tap targets at 44px or larger.
 - z-index layers: intro 100, petals canvas 120, music button 130.
+- Opening animation performance on phones: never animate `filter` (blur/brightness) or `mix-blend-mode` layers; stick to `transform`/`opacity`. The hero name shimmer is a duplicate `.names-sheen` layer (aria-hidden) with a clipped gradient. Don't put `filter: drop-shadow` on the names to fake the glow.
