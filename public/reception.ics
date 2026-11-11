@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hitesh and Shivangi//Wedding Reception//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:reception-20261128@hitesh-shivangi
+DTSTAMP:20261111T000000Z
+DTSTART:20261128T133000Z
+DTEND:20261128T173000Z
+SUMMARY:Wedding Reception · Hitesh & Shivangi
+DESCRIPTION:With hearts full of joy\, we invite you to celebrate with us. 7:00 PM onwards.
+LOCATION:Hotel Golden Orchid\, Kalka Chowk\, New Vita Enclave Road\, Ambala City\, Haryana\, India
+BEGIN:VALARM
+TRIGGER:-PT3H
+ACTION:DISPLAY
+DESCRIPTION:Hitesh & Shivangi's Wedding Reception today at 7:00 PM
+END:VALARM
+END:VEVENT
+END:VCALENDAR

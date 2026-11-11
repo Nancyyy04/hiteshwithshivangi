@@ -1,0 +1,13 @@
+[build]
+  publish = "public"
+
+[[headers]]
+  for = "/reception.ics"
+  [headers.values]
+    Content-Type = "text/calendar; charset=utf-8"
+    Content-Disposition = "attachment; filename=Hitesh-Shivangi-Reception.ics"
+
+[[headers]]
+  for = "/audio/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

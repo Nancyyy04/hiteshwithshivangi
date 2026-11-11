@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en" class="is-locked">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Hitesh &amp; Shivangi · Wedding Reception · 28 November 2026</title>
+  <meta name="description" content="With hearts full of joy, we invite you to join us as we celebrate the beginning of a beautiful new chapter. Wedding Reception of Hitesh &amp; Shivangi, 28 November 2026, Hotel Golden Orchid, Ambala City." />
+  <meta name="theme-color" content="#6b2236" />
+
+  <!-- Link preview (WhatsApp / social) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hitesh &amp; Shivangi · Wedding Reception" />
+  <meta property="og:description" content="28 November 2026 · 7:00 PM onwards · Hotel Golden Orchid, Ambala City" />
+  <meta property="og:image" content="/.netlify/images?url=/img/hero-palace-river.jpg&amp;w=1200&amp;h=630&amp;fit=cover&amp;fm=jpg&amp;q=80" />
+
+  <!-- Preload the opening artwork so the doors appear instantly -->
+  <link rel="preload" as="image" href="/.netlify/images?url=/img/opening-arch-frame.png&amp;w=1200&amp;fm=webp&amp;q=82" />
+  <link rel="preload" as="image" href="/.netlify/images?url=/img/opening-palace-doors.jpg&amp;w=900&amp;fm=webp&amp;q=82" />
+
+  <!-- Google Fonts: Great Vibes (names), Playfair Display (headings/body), Cinzel (royal labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <noscript><style>#intro{display:none!important}html.is-locked,html.is-locked body{overflow:auto!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+  <style>
+    /* =====================================================================
+       0. DESIGN TOKENS
+       ===================================================================== */
+    :root {
+      --wine: #5a1628;
+      --maroon: #6b2236;
+      --maroon-soft: #7d3346;
+      --rose: #c98b93;
+      --blush: #f2d8d5;
+      --mauve: #9c6b7e;
+      --ivory: #fbf4ea;
+      --parchment: #f1e4d4;
+      --gold: #b8925a;
+      --gold-deep: #9c763d;
+      --champagne: #dcc495;
+      --ease-royal: cubic-bezier(.62, .02, .22, 1);
+      --stage-ratio: 1200 / 1607; /* aspect ratio of opening-arch-frame.png */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html, body { overflow-x: hidden; }
+    body {
+      margin: 0;
+      background: #f1e2d8;
+      color: var(--maroon);
+      font-family: 'Playfair Display', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html.is-locked, html.is-locked body { overflow: hidden; height: 100%; touch-action: none; }
+    img { display: block; max-width: 100%; }
+    ::selection { background: rgba(201, 139, 147, .35); }
+
+    .font-script { font-family: 'Great Vibes', cursive; font-weight: 400; }
+    .font-royal  { font-family: 'Cinzel', serif; }
+
+    /* Shared "fill the section" artwork layer */
+    .bg-art { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+    .bg-art img, .bg-art picture { width: 100%; height: 100%; object-fit: cover; }
+    .bg-art .parallax { position: absolute; inset: -6% 0; height: 112%; will-change: transform; }
+
+    .section { position: relative; isolation: isolate; overflow: hidden; }
+
+    /* Soft colour blends so each illustrated page melts into the next */
+    .fade-top, .fade-bottom { position: absolute; left: 0; right: 0; height: clamp(60px, 12vh, 140px); pointer-events: none; z-index: 2; }
+    .fade-top { top: 0; background: linear-gradient(to bottom, var(--fade-from, #f1e4d4), transparent); }
+    .fade-bottom { bottom: 0; background: linear-gradient(to top, var(--fade-to, #f1e4d4), transparent); }
+
+    /* Gold ornamental divider */
+    .divider { display: block; width: clamp(150px, 46vw, 250px); height: auto; margin-inline: auto; overflow: visible; }
+
+    /* Decorative floral branches (pink blossoms) */
+    .floral { position: absolute; z-index: 3; pointer-events: none; width: clamp(150px, 44vw, 420px); height: auto; filter: drop-shadow(0 6px 10px rgba(110, 40, 60, .12)); }
+    .floral.tl { top: -2px; left: -2px; }
+    .floral.tr { top: -2px; right: -2px; transform: scaleX(-1); }
+    .floral.bl { bottom: -2px; left: -2px; transform: scaleY(-1); width: clamp(110px, 30vw, 300px); }
+    .floral.br { bottom: -2px; right: -2px; transform: scale(-1, -1); width: clamp(110px, 30vw, 300px); }
+    .floral.sway { animation: sway 9s ease-in-out infinite alternate; transform-origin: top left; }
+    .floral.tr.sway { animation-name: sway-r; transform-origin: top right; }
+    @keyframes sway   { from { rotate: 0deg; } to { rotate: 1.6deg; } }
+    @keyframes sway-r { from { rotate: 0deg; } to { rotate: -1.6deg; } }
+
+    /* Scroll-reveal */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1.2s ease, transform 1.2s var(--ease-royal); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .15s; } .reveal.d2 { transition-delay: .3s; } .reveal.d3 { transition-delay: .45s; } .reveal.d4 { transition-delay: .6s; }
+
+    /* Falling petals canvas (above everything, never blocks taps) */
+    #petals { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 120; }
+
+    /* =====================================================================
+       1. OPENING COVER — royal doors, curtains, TAP TO OPEN
+       ===================================================================== */
+    #intro {
+      position: fixed; inset: 0; z-index: 100; overflow: hidden;
+      background: #4b1527;
+      transition: opacity .9s ease, visibility .9s;
+    }
+    /* Velvet drapery backdrop — visible on wide screens around the doorway */
+    .intro-velvet {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 50% 55%, rgba(255, 214, 170, .18), transparent 70%),
+        linear-gradient(to bottom, rgba(40, 6, 18, .45), transparent 30%, transparent 70%, rgba(40, 6, 18, .55)),
+        repeating-linear-gradient(90deg, #561a2f 0, #7b3550 2.2%, #9a5770 3.6%, #77304a 5.4%, #561a2f 7.5%);
+    }
+    .intro-stage {
+      position: absolute; top: 0; left: 50%;
+      height: 100%; aspect-ratio: var(--stage-ratio);
+      transform: translateX(-50%) scale(1);
+      transform-origin: 50% 52%;
+      transition: transform 3.3s var(--ease-royal) .9s;
+    }
+    /* Doorway opening — matches the transparent arch in opening-arch-frame.png */
+    .door-wrap {
+      position: absolute; left: 25.4%; width: 49.4%; top: 16.6%; height: 70.4%;
+      perspective: 1600px; perspective-origin: 50% 45%;
+    }
+    .beyond { position: absolute; inset: 0; overflow: hidden; background: #f6d9c4; }
+    .beyond img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; transform: scale(1.18); transition: transform 3.6s var(--ease-royal) .5s; filter: saturate(1.05) brightness(1.05); }
+    .beyond-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 58%, rgba(255, 246, 220, .95), rgba(255, 222, 176, .55) 45%, rgba(255, 200, 160, .1) 80%);
+      opacity: .9; transition: opacity 2.4s ease .6s;
+    }
+    .rays {
+      position: absolute; inset: -20%;
+      background: repeating-conic-gradient(from 0deg at 50% 60%, rgba(255, 240, 205, .0) 0deg 8deg, rgba(255, 240, 205, .22) 10deg 12deg, rgba(255, 240, 205, 0) 14deg 22deg);
+      mix-blend-mode: screen; opacity: 0; transition: opacity 2s ease .9s;
+      animation: rays-turn 30s linear infinite;
+    }
+    @keyframes rays-turn { to { rotate: 8deg; } }
+
+    .door {
+      position: absolute; top: 0; height: 100%; width: 50.2%;
+      background-image: url('/.netlify/images?url=/img/opening-palace-doors.jpg&w=900&fm=webp&q=82');
+      background-size: 200% 100%; background-repeat: no-repeat;
+      backface-visibility: hidden; will-change: transform;
+      box-shadow: inset 0 0 30px rgba(120, 60, 40, .25);
+      transition: transform 2.7s var(--ease-royal) .45s, filter 2.7s ease .45s;
+    }
+    .door-left  { left: 0;  background-position: 0 0;    transform-origin: 0 50%; }
+    .door-right { right: 0; background-position: 100% 0; transform-origin: 100% 50%; }
+    .door-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(60, 20, 20, .55), rgba(60, 20, 20, 0)); opacity: 0; transition: opacity 2.7s ease .45s; }
+    .door-right .door-shade { background: linear-gradient(-90deg, rgba(60, 20, 20, .55), rgba(60, 20, 20, 0)); }
+    /* Golden seam of light between the closed doors */
+    .seam { position: absolute; left: 50%; top: 4%; bottom: 4%; width: 2px; transform: translateX(-50%); background: linear-gradient(to bottom, transparent, rgba(255, 236, 190, .9), transparent); filter: blur(1px); opacity: .0; transition: opacity .6s ease .2s; }
+
+    .arch-frame { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; user-select: none; }
+
+    /* Velvet curtains — part from the centre on opening */
+    .curtain { position: absolute; top: -1%; height: 102%; width: 25%; pointer-events: none; transition: transform 2.6s var(--ease-royal) .25s; will-change: transform; }
+    .curtain img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; filter: drop-shadow(0 10px 18px rgba(40, 8, 20, .45)); }
+    .curtain-left  { left: 11%;  transform-origin: 0 0; }
+    .curtain-right { right: 11%; transform-origin: 100% 0; }
+    .curtain-right img { transform: scaleX(-1); }
+
+    /* Ivory TAP TO OPEN plaque */
+    .plaque {
+      position: absolute; left: 50%; top: 53%; transform: translate(-50%, -50%);
+      z-index: 5; cursor: pointer; border: 0; padding: 0; background: none;
+      transition: opacity .55s ease, transform .55s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .plaque-body {
+      position: relative; display: block;
+      padding: .85em 2.1em .8em;
+      font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: .24em;
+      font-size: clamp(.78rem, 2.9vw, 1rem); color: var(--maroon); white-space: nowrap;
+      background: radial-gradient(ellipse at 50% 35%, #fffaf1, #f4e7d2 70%, #ead6b8);
+      border: 1px solid #c4a066;
+      border-radius: 999px / 999px;
+      box-shadow: 0 0 0 3px rgba(251, 244, 234, .65), 0 0 0 4px #c9a76d, 0 8px 22px rgba(70, 25, 20, .35), inset 0 1px 0 #fff;
+    }
+    .plaque-body::before { content: ''; position: absolute; inset: 4px; border: 1px solid rgba(184, 146, 90, .55); border-radius: inherit; pointer-events: none; }
+    .plaque-orn { position: absolute; left: 50%; transform: translateX(-50%); width: 64px; height: 18px; }
+    .plaque-orn.top { top: -17px; }
+    .plaque-orn.bottom { bottom: -17px; transform: translateX(-50%) scaleY(-1); }
+    .plaque::after {
+      content: ''; position: absolute; inset: -14px -18px; border-radius: 999px;
+      box-shadow: 0 0 26px 8px rgba(255, 226, 170, .55); opacity: .5; animation: plaque-glow 2.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes plaque-glow { 50% { opacity: 1; } }
+    .plaque:hover .plaque-body, .plaque:focus-visible .plaque-body { box-shadow: 0 0 0 3px rgba(251, 244, 234, .75), 0 0 0 4px #d4b273, 0 10px 28px rgba(70, 25, 20, .4), 0 0 30px rgba(255, 220, 160, .6), inset 0 1px 0 #fff; }
+    .plaque:focus-visible { outline: none; }
+
+    /* Standing lanterns at the bottom corners (portrait phones, where the frame is cropped) */
+    .intro-lantern { position: absolute; bottom: 1.5%; width: clamp(48px, 15vw, 86px); aspect-ratio: 344 / 780; overflow: hidden; pointer-events: none; display: none; filter: drop-shadow(0 0 18px rgba(255, 200, 120, .55)); }
+    .intro-lantern img { position: absolute; bottom: 0; left: 0; width: 100%; height: auto; }
+    .intro-lantern.left { left: 3%; } .intro-lantern.right { right: 3%; }
+    @media (max-aspect-ratio: 3/4) { .intro-lantern { display: block; } }
+
+    .intro-flower { position: absolute; top: -4px; width: clamp(130px, 34vw, 440px); z-index: 4; pointer-events: none; }
+    .intro-flower.l { left: -4px; } .intro-flower.r { right: -4px; transform: scaleX(-1); }
+
+    /* Warm light flooding the screen at the end of the opening */
+    .light-flood { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(ellipse 55% 60% at 50% 55%, rgba(255, 248, 228, 1), rgba(255, 228, 196, .85) 50%, rgba(246, 210, 196, .7)); transition: opacity 1.1s ease 2.45s; }
+    .light-spill { position: absolute; left: 50%; top: 52%; width: 70vmax; height: 70vmax; transform: translate(-50%, -50%) scale(.3); border-radius: 50%; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255, 226, 170, .75), rgba(255, 210, 150, .2) 45%, transparent 70%); transition: opacity 2.2s ease .7s, transform 3s var(--ease-royal) .7s; }
+
+    /* --- Opening sequence (class added on tap) --- */
+    #intro.opening .plaque { opacity: 0; transform: translate(-50%, -50%) scale(.86); pointer-events: none; }
+    #intro.opening .seam { opacity: 1; }
+    #intro.opening .door-left  { transform: rotateY(84deg); filter: brightness(.82); }
+    #intro.opening .door-right { transform: rotateY(-84deg); filter: brightness(.82); }
+    #intro.opening .door-shade { opacity: 1; }
+    #intro.opening .curtain-left  { transform: translateX(-118%) skewX(-4deg) scaleX(.9); }
+    #intro.opening .curtain-right { transform: translateX(118%) skewX(4deg) scaleX(.9); }
+    #intro.opening .beyond img { transform: scale(1.02); }
+    #intro.opening .beyond-glow { opacity: .35; }
+    #intro.opening .rays { opacity: 1; }
+    #intro.opening .intro-stage { transform: translateX(-50%) scale(1.16); }
+    #intro.opening .light-spill { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    #intro.opening .light-flood { opacity: 1; }
+    #intro.done { opacity: 0; visibility: hidden; }
+
+    /* =====================================================================
+       2. HERO — Hitesh & Shivangi
+       ===================================================================== */
+    #hero { min-height: 100vh; min-height: 100svh; display: flex; justify-content: center; --fade-to: #efe1d3; }
+    #hero .bg-art { opacity: 0; transform: scale(1.06); transition: opacity 1.8s ease, transform 3.2s var(--ease-royal); }
+    #hero .bg-art img { object-position: 50% 100%; }
+    .hero-names { position: relative; z-index: 3; padding-top: clamp(12svh, 15vh, 22svh); text-align: center; }
+    .names {
+      margin: 0; line-height: .95; color: var(--maroon);
+      font-size: clamp(4rem, 17.5vw, 8.6rem);
+      text-shadow: 0 0 22px rgba(255, 243, 236, .95), 0 0 6px rgba(255, 243, 236, .9), 0 2px 1px rgba(255, 255, 255, .35);
+    }
+    .names .n1 { display: block; transform: translateX(-.35em); }
+    .names .n2 { display: block; transform: translateX(.35em); margin-top: -.08em; }
+    .names .amp { font-size: .82em; }
+    .hero-names .divider { margin-top: clamp(.6rem, 2vh, 1.2rem); }
+    .hero-in-el { opacity: 0; filter: blur(6px); transform: translateY(14px); transition: opacity 1.6s ease, filter 1.6s ease, transform 1.6s var(--ease-royal); }
+    .hero-in-el.d2 { transition-delay: .45s; }
+    body.hero-in #hero .bg-art { opacity: 1; transform: none; }
+    body.hero-in .hero-in-el { opacity: 1; filter: none; transform: none; transition-delay: .55s; }
+    body.hero-in .hero-in-el.d2 { transition-delay: 1.05s; }
+    @media (min-width: 768px) {
+      .names { font-size: clamp(5rem, 9.5vw, 9rem); }
+      .hero-names { padding-top: 9vh; }
+    }
+
+    .scroll-cue { position: absolute; bottom: 4.5svh; left: 50%; transform: translateX(-50%); z-index: 4; width: 22px; height: 36px; border: 1.5px solid rgba(107, 34, 54, .55); border-radius: 12px; opacity: 0; transition: opacity 1s ease 2.2s; }
+    .scroll-cue::after { content: ''; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--maroon); animation: cue 2s ease-in-out infinite; }
+    body.hero-in .scroll-cue { opacity: .8; }
+    @keyframes cue { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
+
+    /* =====================================================================
+       3. INVITATION — ornate arch, hosts, palace strip, peacock
+       ===================================================================== */
+    #invitation { min-height: 100svh; --fade-from: #efe1d3; --fade-to: #f0dcd6; padding: clamp(5.5rem, 16vw, 8rem) 1rem calc(clamp(170px, 30vw, 360px) * .72); display: flex; align-items: center; justify-content: center; }
+    .inv-arch { position: relative; z-index: 4; width: min(90vw, 500px); padding: clamp(5.4rem, 25vw, 8.4rem) clamp(1.6rem, 8vw, 3.4rem) clamp(2.4rem, 7vw, 3.4rem); text-align: center; }
+    .inv-arch > svg.arch-shape { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; z-index: -1; }
+    .inv-message { font-size: clamp(1.02rem, 4.2vw, 1.3rem); line-height: 1.85; color: var(--maroon); margin: 1.1rem 0 0; font-weight: 400; }
+    .inv-hosts { margin-top: 1.3rem; font-size: clamp(1.22rem, 5.2vw, 1.6rem); line-height: 1.6; font-weight: 600; color: var(--wine); letter-spacing: .01em; }
+    .kalash { width: 56px; height: 40px; margin: 0 auto; display: block; }
+    .inv-bottom { position: absolute; left: 0; right: 0; bottom: 0; height: clamp(170px, 30vw, 360px); z-index: 1; -webkit-mask-image: linear-gradient(to top, #000 62%, transparent); mask-image: linear-gradient(to top, #000 62%, transparent); }
+    .inv-bottom img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
+    .peacock { position: absolute; left: -2%; bottom: 1%; z-index: 5; width: clamp(118px, 29vw, 270px); height: auto; filter: drop-shadow(0 6px 10px rgba(60, 30, 30, .18)); pointer-events: none; }
+    .stand-lantern { position: absolute; bottom: 2%; z-index: 5; width: clamp(36px, 9vw, 70px); aspect-ratio: 344 / 780; overflow: hidden; pointer-events: none; filter: drop-shadow(0 0 14px rgba(255, 200, 120, .5)); }
+    .stand-lantern img { position: absolute; bottom: 0; width: 100%; height: auto; }
+
+    /* =====================================================================
+       4. SCRATCH THE DATE — heart-shaped canvas
+       ===================================================================== */
+    #save-date { min-height: 100svh; --fade-from: #f0dcd6; --fade-to: #f1dcd8; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: clamp(5rem, 18vw, 7rem) 1rem clamp(5rem, 16vw, 7rem); text-align: center; }
+    .save-title { font-size: clamp(3.2rem, 14vw, 5.4rem); line-height: 1; margin: 0; color: var(--maroon); text-shadow: 0 0 16px rgba(255, 246, 240, .85); }
+    .save-sub { margin: .5rem 0 0; font-style: italic; font-size: clamp(1rem, 4.2vw, 1.2rem); color: var(--maroon-soft); letter-spacing: .02em; }
+    .heart-wrap { position: relative; width: min(82vw, 410px, 58svh); aspect-ratio: 100 / 92; margin: clamp(1.6rem, 5vw, 2.4rem) auto 0; filter: drop-shadow(0 18px 26px rgba(90, 22, 40, .28)); }
+    .heart-wrap svg.heart-base { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .heart-date { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 14%; color: var(--maroon); font-style: italic; line-height: 1.02; user-select: none; }
+    .heart-date .d { font-size: clamp(2.8rem, 15vw, 5rem); font-weight: 500; }
+    .heart-date .m { font-family: 'Great Vibes', cursive; font-style: normal; font-size: clamp(2.2rem, 11vw, 3.8rem); margin-top: -.08em; }
+    .heart-date .y { font-size: clamp(1.7rem, 8.5vw, 2.9rem); font-weight: 500; margin-top: .02em; }
+    #scratch { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: grab; transition: opacity 1s ease; }
+    #scratch:active { cursor: grabbing; }
+    #scratch.gone { opacity: 0; pointer-events: none; }
+    .scratch-hint { position: absolute; right: 9%; bottom: 17%; width: clamp(34px, 10vw, 48px); pointer-events: none; animation: hint 2.2s ease-in-out infinite; transition: opacity .5s; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .3)); }
+    .scratch-hint.hide { opacity: 0; }
+    @keyframes hint { 0%, 100% { transform: translate(0, 0) rotate(-8deg); } 50% { transform: translate(-14px, -10px) rotate(-14deg); } }
+    .heart-wrap.revealed .heart-date { animation: date-glow 1.6s ease both; }
+    @keyframes date-glow { from { opacity: .6; transform: scale(.96); filter: blur(2px); } to { opacity: 1; transform: none; filter: none; } }
+    .sparkle { position: absolute; width: 10px; height: 10px; pointer-events: none; background: radial-gradient(circle, #fff8e1 0 20%, rgba(230, 200, 140, .8) 35%, transparent 70%); border-radius: 50%; animation: sparkle 1.4s ease-out forwards; }
+    @keyframes sparkle { from { opacity: 1; transform: translate(0, 0) scale(.4); } to { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.4); } }
+
+    /* =====================================================================
+       5. COUNTDOWN
+       ===================================================================== */
+    #countdown { min-height: 100svh; --fade-from: #f1dcd8; --fade-to: #f1e4d4; display: flex; justify-content: center; padding: clamp(6rem, 17svh, 10rem) .9rem 0; text-align: center; }
+    #countdown .bg-art img { object-position: 50% 100%; }
+    .count-glow { position: absolute; inset: 0; z-index: 1; background: radial-gradient(ellipse 80% 38% at 50% 26%, rgba(252, 244, 236, .72), rgba(252, 244, 236, 0) 72%); pointer-events: none; }
+    .count-inner { position: relative; z-index: 3; width: 100%; max-width: 640px; }
+    .count-title { margin: 0; font-style: italic; font-weight: 500; font-size: clamp(1.75rem, 7.4vw, 2.9rem); color: var(--maroon); text-shadow: 0 0 14px rgba(255, 246, 240, .9); }
+    .count-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.45rem, 2.4vw, 1.2rem); margin: clamp(1.6rem, 5vw, 2.4rem) auto 0; max-width: 560px; }
+    .count-box {
+      position: relative; padding: clamp(1.1rem, 4.6vw, 1.7rem) .2rem clamp(.7rem, 3vw, 1rem);
+      background: linear-gradient(to bottom, rgba(255, 251, 244, .95), rgba(249, 239, 228, .92));
+      border: 1px solid #c8a46b;
+      border-radius: 46% 46% 12px 12px / 26% 26% 12px 12px;
+      box-shadow: 0 8px 22px rgba(107, 34, 54, .12), inset 0 0 0 3px rgba(255, 251, 244, .9), inset 0 0 0 4px rgba(200, 164, 107, .45);
+    }
+    .count-box::before { /* tiny gold finial on top of each arched box */
+      content: ''; position: absolute; top: -6px; left: 50%; width: 10px; height: 10px; transform: translateX(-50%) rotate(45deg);
+      background: linear-gradient(135deg, #f1dca6, #b8925a); border: 1px solid #fff4dc; box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+    }
+    .count-box::after { /* ornamental corner flourishes */
+      content: ''; position: absolute; left: 6px; right: 6px; bottom: 6px; height: 8px;
+      border-left: 1px solid rgba(184, 146, 90, .7); border-right: 1px solid rgba(184, 146, 90, .7); border-bottom: 1px solid rgba(184, 146, 90, .7); border-radius: 0 0 6px 6px;
+    }
+    .count-num { display: block; font-size: clamp(1.6rem, 7.6vw, 3rem); font-weight: 500; color: var(--wine); line-height: 1.05; font-variant-numeric: lining-nums tabular-nums; }
+    .count-label { display: block; margin-top: .35rem; font-size: clamp(.66rem, 2.8vw, .9rem); color: var(--maroon-soft); letter-spacing: .04em; }
+    .count-done { margin-top: 1.6rem; font-size: clamp(2.6rem, 11vw, 4.2rem); color: var(--maroon); text-shadow: 0 0 14px rgba(255, 246, 240, .9); }
+
+    /* =====================================================================
+       6. RECEPTION DETAILS + MAP
+       ===================================================================== */
+    #reception { --fade-from: #f1e4d4; --fade-to: #f1e4d4; padding: clamp(5rem, 16vw, 7rem) 1.1rem clamp(5rem, 16vw, 7rem); display: flex; justify-content: center; }
+    .rec-inner { position: relative; z-index: 4; width: 100%; max-width: 560px; text-align: center; }
+    .rec-palace { width: clamp(110px, 30vw, 150px); height: auto; margin: 0 auto; display: block; }
+    .rec-title { margin: .3rem 0 0; font-size: clamp(3rem, 13vw, 4.6rem); line-height: 1.05; color: var(--maroon); }
+    .details { list-style: none; padding: 0; margin: 1.8rem auto 0; max-width: 400px; text-align: left; display: grid; gap: 1.25rem; }
+    .details li { display: grid; grid-template-columns: 44px 1fr; gap: .9rem; align-items: start; }
+    .detail-icon { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(184, 146, 90, .75); background: radial-gradient(circle at 50% 35%, #fffaf2, #f3e4d0); box-shadow: inset 0 0 0 3px rgba(255, 250, 242, .9); }
+    .detail-icon svg { width: 21px; height: 21px; }
+    .detail-label { display: block; font-family: 'Cinzel', serif; font-size: .74rem; letter-spacing: .26em; color: var(--gold-deep); font-weight: 600; }
+    .detail-value { display: block; margin-top: .15rem; font-size: clamp(1.08rem, 4.4vw, 1.25rem); color: var(--wine); line-height: 1.4; }
+    .detail-value strong { font-weight: 600; }
+    .detail-addr { display: block; margin-top: .25rem; font-size: clamp(.9rem, 3.7vw, 1rem); color: var(--maroon-soft); line-height: 1.55; }
+    .map-frame { position: relative; margin: 2rem auto 0; padding: 6px; border-radius: 16px; background: linear-gradient(135deg, #f7ecdc, #efdcc4); border: 1px solid #c4a066; box-shadow: 0 14px 30px rgba(107, 34, 54, .14), inset 0 0 0 1px rgba(255, 255, 255, .7); }
+    .map-frame::before { content: ''; position: absolute; inset: 3px; border-radius: 13px; border: 1px solid rgba(196, 160, 102, .5); pointer-events: none; }
+    .map-frame iframe { display: block; width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: 11px; filter: sepia(.18) saturate(.9) hue-rotate(-8deg); background: #efe4d6; }
+    @media (min-width: 768px) { .map-frame iframe { aspect-ratio: 16 / 10; } }
+    .btn-directions {
+      display: inline-flex; align-items: center; gap: .65rem; margin-top: 1.6rem;
+      padding: .95rem 2rem; border-radius: 999px; text-decoration: none;
+      font-family: 'Playfair Display', serif; font-size: 1.05rem; letter-spacing: .03em; color: var(--ivory);
+      background: linear-gradient(180deg, #7c2a40, #5a1628);
+      box-shadow: 0 0 0 1px #c4a066, 0 0 0 4px rgba(251, 244, 234, .9), 0 0 0 5px rgba(196, 160, 102, .65), 0 12px 24px rgba(90, 22, 40, .32);
+      transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+    }
+    .btn-directions:hover, .btn-directions:focus-visible { transform: translateY(-2px); filter: brightness(1.08); outline: none; }
+    .btn-directions svg { width: 18px; height: 18px; flex: none; }
+
+    /* =====================================================================
+       7. CLOSING
+       ===================================================================== */
+    #closing { min-height: 100svh; --fade-from: #f1e4d4; display: flex; justify-content: center; text-align: center; }
+    #closing .bg-art img { object-position: 50% 100%; }
+    .closing-inner { position: relative; z-index: 3; padding-top: clamp(20svh, 24vh, 28svh); }
+    .closing-line { margin: 0; font-style: italic; font-size: clamp(1.7rem, 7.4vw, 2.9rem); line-height: 1.35; color: var(--maroon); text-shadow: 0 0 16px rgba(255, 244, 240, .95), 0 0 4px rgba(255, 244, 240, .9); }
+    .closing-names { margin: clamp(.8rem, 3vh, 1.6rem) 0 0; line-height: .95; font-size: clamp(3.6rem, 16vw, 7.4rem); color: var(--maroon); text-shadow: 0 0 20px rgba(255, 244, 240, .95), 0 0 6px rgba(255, 244, 240, .9); }
+    .closing-names .n1 { display: block; transform: translateX(-.3em); }
+    .closing-names .n2 { display: block; transform: translateX(.3em); margin-top: -.06em; }
+    @media (min-width: 768px) { .closing-inner { padding-top: 21vh; } .closing-names { font-size: clamp(4.4rem, 8vw, 7.6rem); } }
+
+    /* =====================================================================
+       REDUCED MOTION
+       ===================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .floral.sway, .rays, .plaque::after, .scroll-cue::after, .scratch-hint { animation: none !important; }
+      .reveal { transition-duration: .01s; transform: none; }
+      .intro-stage, .curtain, .door, .door-shade, .beyond img, .beyond-glow, .rays, .light-flood, .light-spill { transition-duration: .9s !important; transition-delay: 0s !important; }
+      .light-flood { transition-delay: .7s !important; }
+      #intro.opening .intro-stage { transform: translateX(-50%); }
+    }
+
+    /* =====================================================================
+       MOBILE POLISH
+       ===================================================================== */
+    .save-inner { position: relative; z-index: 4; width: 100%; }
+    a, button { touch-action: manipulation; }
+    /* Comfortable tap targets + safe areas on notched phones */
+    #reception { padding-bottom: calc(clamp(5rem, 16vw, 7rem) + env(safe-area-inset-bottom)); }
+    .rec-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem 1rem; margin-top: 1.6rem; }
+    .rec-actions .btn-directions { margin-top: 0; min-height: 52px; }
+    .btn-calendar { color: var(--wine); background: linear-gradient(180deg, #fffaf1, #f1e1c8); }
+    @media (max-width: 420px) {
+      .rec-actions { flex-direction: column; align-items: stretch; padding-inline: .6rem; }
+      .rec-actions .btn-directions { justify-content: center; }
+      .details li { grid-template-columns: 40px 1fr; gap: .75rem; }
+      .detail-icon { width: 40px; height: 40px; }
+    }
+    /* Short / landscape phones: keep text from colliding with artwork */
+    @media (max-height: 520px) and (orientation: landscape) {
+      .hero-names { padding-top: 6vh; }
+      .names { font-size: clamp(2.8rem, 9vw, 4.6rem); }
+      .closing-inner { padding-top: 10vh; }
+      .closing-names { font-size: clamp(2.8rem, 9vw, 4.6rem); }
+      .heart-wrap { width: min(60vw, 70svh); }
+    }
+
+    /* =====================================================================
+       MUSIC PLAYER — floating gold medallion
+       ===================================================================== */
+    .music-btn {
+      position: fixed; z-index: 130;
+      right: calc(14px + env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom));
+      width: 54px; height: 54px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+      display: grid; place-items: center; color: var(--ivory);
+      background: radial-gradient(circle at 50% 35%, #8a3249, #5a1628 72%);
+      box-shadow: 0 0 0 1.5px #c4a066, 0 0 0 4px rgba(251, 244, 234, .85), 0 0 0 5px rgba(196, 160, 102, .7), 0 10px 22px rgba(70, 20, 35, .35);
+      opacity: 0; transform: scale(.6); pointer-events: none;
+      transition: opacity .6s ease, transform .6s var(--ease-royal);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .music-btn.show { opacity: 1; transform: none; pointer-events: auto; }
+    .music-btn:active { transform: scale(.94); }
+    .music-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+    .music-btn svg { width: 22px; height: 22px; }
+    .music-btn .ico-off { display: block; }
+    .music-btn .bars { display: none; align-items: flex-end; gap: 3px; height: 20px; }
+    .music-btn .bars i { display: block; width: 3px; height: 100%; border-radius: 2px; background: linear-gradient(to top, #dcc495, #fff4dc); transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
+    .music-btn .bars i:nth-child(2) { animation-delay: -.35s; } .music-btn .bars i:nth-child(3) { animation-delay: -.7s; } .music-btn .bars i:nth-child(4) { animation-delay: -.2s; }
+    @keyframes eq { 0%, 100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+    .music-btn.playing .ico-off { display: none; }
+    .music-btn.playing .bars { display: flex; }
+    .music-btn.playing::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 1px solid rgba(220, 196, 149, .8); animation: ring 2.4s ease-out infinite; pointer-events: none; }
+    @keyframes ring { from { transform: scale(1); opacity: .9; } to { transform: scale(1.45); opacity: 0; } }
+    .music-label {
+      position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+      white-space: nowrap; font-family: 'Playfair Display', serif; font-style: italic; font-size: .9rem; color: var(--wine);
+      background: rgba(251, 244, 234, .94); border: 1px solid rgba(196, 160, 102, .7); border-radius: 999px; padding: .35rem .85rem;
+      box-shadow: 0 6px 16px rgba(90, 22, 40, .15); opacity: 0; transition: opacity .5s ease; pointer-events: none;
+    }
+    .music-btn.hint .music-label { opacity: 1; }
+    .plaque-music { position: absolute; left: 50%; top: calc(100% + 26px); transform: translateX(-50%); white-space: nowrap; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(.78rem, 3.1vw, .92rem); letter-spacing: .03em; color: #fbefd9; text-shadow: 0 1px 6px rgba(40, 8, 20, .8); display: flex; align-items: center; gap: .4rem; pointer-events: none; }
+    .plaque-music svg { width: 14px; height: 14px; }
+    @media (prefers-reduced-motion: reduce) { .music-btn .bars i, .music-btn.playing::after { animation: none; } }
+  </style>
+</head>
+
+<body>
+  <!-- =====================================================================
+       Shared SVG definitions: gold gradients + reusable ornaments
+       ===================================================================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a87b3f" />
+        <stop offset=".35" stop-color="#e9d39f" />
+        <stop offset=".6" stop-color="#b8925a" />
+        <stop offset="1" stop-color="#d9bd83" />
+      </linearGradient>
+      <linearGradient id="gold-h" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#b8925a" stop-opacity="0" />
+        <stop offset=".25" stop-color="#b8925a" />
+        <stop offset=".5" stop-color="#e3c98f" />
+        <stop offset=".75" stop-color="#b8925a" />
+        <stop offset="1" stop-color="#b8925a" stop-opacity="0" />
+      </linearGradient>
+      <radialGradient id="ivory-heart" cx=".5" cy=".42" r=".62">
+        <stop offset="0" stop-color="#fffaf1" />
+        <stop offset=".7" stop-color="#f6e9d6" />
+        <stop offset="1" stop-color="#ecd6bd" />
+      </radialGradient>
+      <linearGradient id="arch-fill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fffaf2" stop-opacity=".72" />
+        <stop offset="1" stop-color="#fbf1e6" stop-opacity=".45" />
+      </linearGradient>
+
+      <!-- Gold ornamental divider: lotus centre with scrolling lines -->
+      <symbol id="orn-divider" viewBox="0 0 240 26">
+        <g fill="none" stroke="url(#gold-h)" stroke-width="1" stroke-linecap="round">
+          <path d="M4 13 H88" /><path d="M152 13 H236" />
+          <path d="M30 17 H86" stroke-width=".6" /><path d="M154 17 H210" stroke-width=".6" />
+        </g>
+        <g fill="none" stroke="#b8925a" stroke-width="1" stroke-linecap="round">
+          <path d="M88 13 c4 -7 13 -7 14 0 c1 5 -6 6 -7 2" />
+          <path d="M152 13 c-4 -7 -13 -7 -14 0 c-1 5 6 6 7 2" />
+        </g>
+        <g fill="#c6a165">
+          <path d="M120 2 C116 8 116 15 120 22 C124 15 124 8 120 2Z" />
+          <path d="M120 22 C113 19 107 15 104 11 C110 12 116 15 120 22Z" opacity=".85" />
+          <path d="M120 22 C127 19 133 15 136 11 C130 12 124 15 120 22Z" opacity=".85" />
+          <circle cx="76" cy="13" r="1.6" /><circle cx="164" cy="13" r="1.6" />
+          <circle cx="66" cy="13" r="1" /><circle cx="174" cy="13" r="1" />
+          <path d="M108 13 l3 -2.4 l3 2.4 l-3 2.4Z" /><path d="M126 13 l3 -2.4 l3 2.4 l-3 2.4Z" />
+        </g>
+      </symbol>
+
+      <!-- Small top ornament used on the plaque -->
+      <symbol id="orn-crest" viewBox="0 0 64 18">
+        <g fill="#c49c5e">
+          <path d="M32 1 C29 6 29 11 32 17 C35 11 35 6 32 1Z" />
+          <path d="M32 17 C26 15 22 11 20 8 C25 9 29 12 32 17Z" />
+          <path d="M32 17 C38 15 42 11 44 8 C39 9 35 12 32 17Z" />
+        </g>
+        <g fill="none" stroke="#c49c5e" stroke-width=".9" stroke-linecap="round">
+          <path d="M18 15 C12 15 8 12 4 14" /><path d="M46 15 C52 15 56 12 60 14" />
+        </g>
+      </symbol>
+
+      <!-- Heart path, shared by the reveal layer and the scratch canvas -->
+      <path id="heart-path" d="M50 89 C20 67 2.5 49 2.5 28.5 C2.5 13.5 13.5 2.5 27.5 2.5 C37.5 2.5 45 8.5 50 17.5 C55 8.5 62.5 2.5 72.5 2.5 C86.5 2.5 97.5 13.5 97.5 28.5 C97.5 49 80 67 50 89 Z" />
+    </defs>
+  </svg>
+
+  <canvas id="petals" aria-hidden="true"></canvas>
+
+  <!-- =====================================================================
+       SCREEN 1 · OPENING COVER (overlay, removed after the doors open)
+       Replaceable artwork: img/opening-arch-frame.png, img/opening-palace-doors.jpg,
+       img/velvet-curtain.png, img/floral-branch-corner.png, img/hanging-lantern.png
+       ===================================================================== -->
+  <div id="intro" role="dialog" aria-modal="true" aria-label="Wedding invitation cover">
+    <div class="intro-velvet"></div>
+
+    <div class="intro-stage" id="introStage">
+      <div class="door-wrap" id="doorWrap">
+        <!-- The palace glimpsed through the doorway -->
+        <div class="beyond">
+          <img src="/.netlify/images?url=/img/hero-palace-river-mobile.jpg&amp;w=900&amp;fm=webp&amp;q=78" alt="" decoding="async" />
+          <div class="beyond-glow"></div>
+          <div class="rays"></div>
+        </div>
+        <div class="door door-left"><span class="door-shade"></span></div>
+        <div class="door door-right"><span class="door-shade"></span></div>
+        <div class="seam"></div>
+      </div>
+
+      <img class="arch-frame" src="/.netlify/images?url=/img/opening-arch-frame.png&amp;w=1200&amp;fm=webp&amp;q=82" alt="" decoding="async" fetchpriority="high" />
+
+      <div class="curtain curtain-left"><img src="/.netlify/images?url=/img/velvet-curtain.png&amp;w=700&amp;fm=webp&amp;q=80" alt="" decoding="async" /></div>
+      <div class="curtain curtain-right"><img src="/.netlify/images?url=/img/velvet-curtain.png&amp;w=700&amp;fm=webp&amp;q=80" alt="" decoding="async" /></div>
+
+      <button class="plaque" id="openBtn" type="button" aria-label="Tap to open the invitation">
+        <svg class="plaque-orn top" aria-hidden="true"><use href="#orn-crest" /></svg>
+        <span class="plaque-body">TAP TO OPEN</span>
+        <svg class="plaque-orn bottom" aria-hidden="true"><use href="#orn-crest" /></svg>
+        <span class="plaque-music" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 17.5V5.8l11-2.3v11.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="2.6"/><circle cx="17.5" cy="15.2" r="2.6"/></svg>with music</span>
+      </button>
+    </div>
+
+    <img class="intro-flower l" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=600&amp;fm=webp&amp;q=80" alt="" decoding="async" />
+    <img class="intro-flower r" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=600&amp;fm=webp&amp;q=80" alt="" decoding="async" />
+
+    <div class="intro-lantern left"><img src="/.netlify/images?url=/img/hanging-lantern.png&amp;w=200&amp;fm=webp&amp;q=80" alt="" /></div>
+    <div class="intro-lantern right"><img src="/.netlify/images?url=/img/hanging-lantern.png&amp;w=200&amp;fm=webp&amp;q=80" alt="" /></div>
+
+    <div class="light-spill"></div>
+    <div class="light-flood"></div>
+  </div>
+
+  <main>
+    <!-- =================================================================
+         SCREEN 2 · HERO — img/hero-palace-river.jpg (+ -mobile)
+         ================================================================= -->
+    <section id="hero" class="section" aria-label="Hitesh and Shivangi">
+      <div class="bg-art">
+        <div class="parallax" data-parallax="0.12">
+          <picture>
+            <source media="(max-aspect-ratio: 4/5)"
+              srcset="/.netlify/images?url=/img/hero-palace-river-mobile.jpg&amp;w=720&amp;fm=webp&amp;q=78 720w,
+                      /.netlify/images?url=/img/hero-palace-river-mobile.jpg&amp;w=1080&amp;fm=webp&amp;q=78 1080w,
+                      /.netlify/images?url=/img/hero-palace-river-mobile.jpg&amp;w=1536&amp;fm=webp&amp;q=78 1536w"
+              sizes="100vw" />
+            <img
+              src="/.netlify/images?url=/img/hero-palace-river.jpg&amp;w=1600&amp;fm=webp&amp;q=78"
+              srcset="/.netlify/images?url=/img/hero-palace-river.jpg&amp;w=1000&amp;fm=webp&amp;q=78 1000w,
+                      /.netlify/images?url=/img/hero-palace-river.jpg&amp;w=1600&amp;fm=webp&amp;q=78 1600w,
+                      /.netlify/images?url=/img/hero-palace-river.jpg&amp;w=2400&amp;fm=webp&amp;q=78 2400w"
+              sizes="100vw" alt="A royal palace beside a river at sunset, framed by carved pillars, blossoms and lanterns" fetchpriority="high" decoding="async" />
+          </picture>
+        </div>
+      </div>
+
+      <div class="hero-names">
+        <h1 class="names font-script hero-in-el">
+          <span class="n1">Hitesh <span class="amp">&amp;</span></span>
+          <span class="n2">Shivangi</span>
+        </h1>
+        <svg class="divider hero-in-el d2" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
+      </div>
+      <span class="scroll-cue" aria-hidden="true"></span>
+      <div class="fade-bottom"></div>
+    </section>
+
+    <!-- =================================================================
+         SCREEN 3 · INVITATION — img/parchment-background.jpg,
+         img/invitation-palace-background.jpg, img/peacock.png
+         ================================================================= -->
+    <section id="invitation" class="section" aria-label="Invitation">
+      <div class="bg-art"><img src="/.netlify/images?url=/img/parchment-background.jpg&amp;w=1200&amp;fm=webp&amp;q=75" alt="" loading="lazy" decoding="async" /></div>
+      <div class="fade-top"></div>
+
+      <img class="floral tl sway" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=640&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+      <img class="floral tr sway" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=640&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+
+      <div class="inv-arch reveal">
+        <!-- Ornate scalloped Indian arch (gold line-work) -->
+        <svg class="arch-shape" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M14 600 V238 C14 178 42 148 72 136 C66 114 80 98 100 98 C102 74 122 60 142 62 C148 42 168 32 186 38 C189 24 194 15 200 6 C206 15 211 24 214 38 C232 32 252 42 258 62 C278 60 298 74 300 98 C320 98 334 114 328 136 C358 148 386 178 386 238 V600"
+                fill="url(#arch-fill)" stroke="url(#gold)" stroke-width="1.6" vector-effect="non-scaling-stroke" />
+          <path transform="translate(200 600) scale(.94 .965) translate(-200 -600)"
+                d="M14 600 V238 C14 178 42 148 72 136 C66 114 80 98 100 98 C102 74 122 60 142 62 C148 42 168 32 186 38 C189 24 194 15 200 6 C206 15 211 24 214 38 C232 32 252 42 258 62 C278 60 298 74 300 98 C320 98 334 114 328 136 C358 148 386 178 386 238 V600"
+                fill="none" stroke="#c6a165" stroke-opacity=".7" stroke-width="1" stroke-dasharray="1 4" vector-effect="non-scaling-stroke" />
+        </svg>
+
+        <!-- Kalash / lotus crest -->
+        <svg class="kalash" viewBox="0 0 56 40" aria-hidden="true">
+          <g fill="none" stroke="#b8925a" stroke-width="1.1" stroke-linecap="round">
+            <path d="M28 4 C24 10 24 16 28 22 C32 16 32 10 28 4Z" fill="#e5cd98" fill-opacity=".55" />
+            <path d="M28 22 C20 20 14 15 11 10 C18 11 24 15 28 22Z" />
+            <path d="M28 22 C36 20 42 15 45 10 C38 11 32 15 28 22Z" />
+            <path d="M28 22 C22 24 13 24 6 20" /><path d="M28 22 C34 24 43 24 50 20" />
+            <path d="M18 30 H38" /><path d="M22 34 H34" />
+          </g>
+          <circle cx="28" cy="27" r="1.6" fill="#b8925a" />
+        </svg>
+
+        <p class="inv-message">With hearts full of joy, we invite you to join us as we celebrate the beginning of a beautiful new chapter.</p>
+
+        <svg class="divider" style="margin-top:1.4rem;width:min(200px,58%)" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
+
+        <p class="inv-hosts">Mr. Vikas Chhibber<br />Mrs. Bhavna Chhibber</p>
+      </div>
+
+      <div class="inv-bottom"><img src="/.netlify/images?url=/img/invitation-palace-background.jpg&amp;w=1600&amp;fm=webp&amp;q=78" alt="" loading="lazy" decoding="async" /></div>
+      <img class="peacock" src="/.netlify/images?url=/img/peacock.png&amp;w=560&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+      <div class="stand-lantern" style="right:4%"><img src="/.netlify/images?url=/img/hanging-lantern.png&amp;w=160&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" /></div>
+      <div class="fade-bottom" style="height:40px"></div>
+    </section>
+
+    <!-- =================================================================
+         SCREEN 4 · SAVE THE DATE — heart-shaped scratch card
+         img/scratch-date-background.jpg
+         ================================================================= -->
+    <section id="save-date" class="section" aria-label="Save the date">
+      <div class="bg-art"><img src="/.netlify/images?url=/img/scratch-date-background.jpg&amp;w=1200&amp;fm=webp&amp;q=75" alt="" loading="lazy" decoding="async" /></div>
+      <div class="fade-top"></div>
+      <img class="floral tl sway" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=640&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+      <img class="floral tr sway" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=640&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+      <img class="floral bl" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=480&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+      <img class="floral br" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=480&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+
+      <div class="save-inner">
+        <h2 class="save-title font-script reveal">Save the Date</h2>
+        <p class="save-sub reveal d1">Scratch to reveal</p>
+
+        <div class="heart-wrap reveal d2" id="heartWrap">
+          <!-- Revealed layer: ivory heart with the date -->
+          <svg class="heart-base" viewBox="0 0 100 92" preserveAspectRatio="none" aria-hidden="true">
+            <use href="#heart-path" fill="url(#ivory-heart)" />
+            <use href="#heart-path" fill="none" stroke="url(#gold)" stroke-width="1.5" />
+            <use href="#heart-path" fill="none" stroke="#c6a165" stroke-opacity=".6" stroke-width=".35" stroke-dasharray=".8 1.6" transform="translate(50 46) scale(.9) translate(-50 -46)" />
+          </svg>
+          <div class="heart-date" aria-label="28 November 2026">
+            <span class="d">28</span>
+            <span class="m">November</span>
+            <span class="y">2026</span>
+          </div>
+          <!-- Scratch surface -->
+          <canvas id="scratch" aria-label="Scratch this heart to reveal the date" role="img"></canvas>
+          <!-- Hand hint -->
+          <svg class="scratch-hint" id="scratchHint" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M18 22 V9.5 a3 3 0 0 1 6 0 V20 l.2 -3 a3 3 0 0 1 6 .4 V21 a3 3 0 0 1 5.8 .6 V24 a3 3 0 0 1 5.8 1 V33 c0 7 -5 12 -12 12 h-3 c-4.5 0 -7.6 -2 -10 -5.6 L9.5 31 a3.1 3.1 0 0 1 5 -3.6 L18 31Z" fill="#fbf4ea" stroke="#6b2236" stroke-width="1.6" stroke-linejoin="round" />
+            <path d="M12 6 l-3 -3 M21 3 V0 M30 6 l3 -3" stroke="#f1dca6" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </div>
+      </div>
+      <div class="fade-bottom"></div>
+    </section>
+
+    <!-- =================================================================
+         SCREEN 5 · COUNTDOWN — img/countdown-palace-background.jpg (+ -mobile)
+         ================================================================= -->
+    <section id="countdown" class="section" aria-label="Countdown to the celebration">
+      <div class="bg-art">
+        <div class="parallax" data-parallax="0.1">
+          <picture>
+            <source media="(max-aspect-ratio: 4/5)"
+              srcset="/.netlify/images?url=/img/countdown-palace-background-mobile.jpg&amp;w=720&amp;fm=webp&amp;q=76 720w,
+                      /.netlify/images?url=/img/countdown-palace-background-mobile.jpg&amp;w=1080&amp;fm=webp&amp;q=76 1080w,
+                      /.netlify/images?url=/img/countdown-palace-background-mobile.jpg&amp;w=1536&amp;fm=webp&amp;q=76 1536w"
+              sizes="100vw" />
+            <img src="/.netlify/images?url=/img/countdown-palace-background.jpg&amp;w=1600&amp;fm=webp&amp;q=76"
+              srcset="/.netlify/images?url=/img/countdown-palace-background.jpg&amp;w=1000&amp;fm=webp&amp;q=76 1000w,
+                      /.netlify/images?url=/img/countdown-palace-background.jpg&amp;w=1600&amp;fm=webp&amp;q=76 1600w,
+                      /.netlify/images?url=/img/countdown-palace-background.jpg&amp;w=2400&amp;fm=webp&amp;q=76 2400w"
+              sizes="100vw" alt="" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+      </div>
+      <div class="count-glow"></div>
+      <div class="fade-top"></div>
+
+      <div class="count-inner">
+        <h2 class="count-title reveal">The Celebration Begins In</h2>
+        <svg class="divider reveal d1" style="margin-top:.9rem" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
+
+        <div class="count-row reveal d2" id="countRow" role="timer" aria-live="off">
+          <div class="count-box"><span class="count-num" id="cdDays">--</span><span class="count-label">Days</span></div>
+          <div class="count-box"><span class="count-num" id="cdHours">--</span><span class="count-label">Hours</span></div>
+          <div class="count-box"><span class="count-num" id="cdMinutes">--</span><span class="count-label">Minutes</span></div>
+          <div class="count-box"><span class="count-num" id="cdSeconds">--</span><span class="count-label">Seconds</span></div>
+        </div>
+        <p class="count-done font-script" id="countDone" hidden>The celebration has begun!</p>
+      </div>
+      <div class="fade-bottom"></div>
+    </section>
+
+    <!-- =================================================================
+         SCREEN 6 · RECEPTION DETAILS + GOOGLE MAPS — img/parchment-background.jpg
+         ================================================================= -->
+    <section id="reception" class="section" aria-label="Wedding reception details">
+      <div class="bg-art"><img src="/.netlify/images?url=/img/parchment-background.jpg&amp;w=1200&amp;fm=webp&amp;q=75" alt="" loading="lazy" decoding="async" style="transform:scaleX(-1)" /></div>
+      <div class="fade-top"></div>
+      <img class="floral tl sway" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=560&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" style="width:clamp(130px,36vw,360px)" />
+      <img class="floral tr sway" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=560&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" style="width:clamp(130px,36vw,360px)" />
+      <img class="floral br" src="/.netlify/images?url=/img/floral-branch-corner.png&amp;w=480&amp;fm=webp&amp;q=80" alt="" loading="lazy" decoding="async" />
+
+      <div class="rec-inner">
+        <!-- Small palace line illustration -->
+        <svg class="rec-palace reveal" viewBox="0 0 160 76" aria-hidden="true">
+          <g fill="#fbf1e2" stroke="url(#gold)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M8 62 H152" fill="none" /><path d="M14 67 H146" fill="none" stroke-width=".8" />
+            <path d="M20 62 V44 Q20 35 28 31 Q36 35 36 44 V62Z" />
+            <path d="M124 62 V44 Q124 35 132 31 Q140 35 140 44 V62Z" />
+            <path d="M42 62 V40 H118 V62Z" />
+            <path d="M58 40 V32 Q58 16 80 8 Q102 16 102 32 V40Z" />
+            <path d="M72 62 V50 Q80 42 88 50 V62" fill="#f1dcc0" />
+            <path d="M50 62 V52 Q54 47 58 52 V62" fill="none" /><path d="M102 62 V52 Q106 47 110 52 V62" fill="none" />
+            <path d="M80 8 V2" fill="none" /><path d="M28 31 V26" fill="none" /><path d="M132 31 V26" fill="none" />
+            <path d="M42 40 V30 M118 40 V30" fill="none" />
+          </g>
+          <g fill="#b8925a"><circle cx="80" cy="2" r="1.6" /><circle cx="28" cy="25.5" r="1.2" /><circle cx="132" cy="25.5" r="1.2" /><circle cx="42" cy="29" r="1.1" /><circle cx="118" cy="29" r="1.1" /></g>
+        </svg>
+
+        <h2 class="rec-title font-script reveal d1">Wedding Reception</h2>
+        <svg class="divider reveal d1" style="margin-top:.5rem;width:min(200px,56vw)" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
+
+        <ul class="details reveal d2">
+          <li>
+            <span class="detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#6b2236" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 9.5 H20.5 M8 3 V6.5 M16 3 V6.5" /><path d="M8 13.5 h.01 M12 13.5 h.01 M16 13.5 h.01 M8 17 h.01 M12 17 h.01" stroke-width="2.2" /></svg>
+            </span>
+            <span><span class="detail-label">DATE</span><span class="detail-value">28 November 2026</span></span>
+          </li>
+          <li>
+            <span class="detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#6b2236" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5 V12 l3 2" /></svg>
+            </span>
+            <span><span class="detail-label">TIME</span><span class="detail-value">7:00 PM onwards</span></span>
+          </li>
+          <li>
+            <span class="detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#6b2236" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21 s-6.5 -6.2 -6.5 -11.2 a6.5 6.5 0 0 1 13 0 C18.5 14.8 12 21 12 21Z" /><circle cx="12" cy="9.8" r="2.4" /></svg>
+            </span>
+            <span>
+              <span class="detail-label">VENUE</span>
+              <span class="detail-value"><strong>Hotel Golden Orchid</strong></span>
+              <span class="detail-addr">Kalka Chowk, New Vita Enclave Road, Ambala City, Haryana, India.</span>
+            </span>
+          </li>
+        </ul>
+
+        <div class="map-frame reveal d3">
+          <iframe
+            title="Map showing Hotel Golden Orchid, Kalka Chowk, New Vita Enclave Road, Ambala City, Haryana, India"
+            src="https://www.google.com/maps?q=Hotel+Golden+Orchid,+Kalka+Chowk,+New+Vita+Enclave+Road,+Ambala+City,+Haryana,+India&amp;output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+
+        <div class="rec-actions reveal d4">
+        <a class="btn-directions"
+           href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Golden+Orchid%2C+Kalka+Chowk%2C+New+Vita+Enclave+Road%2C+Ambala+City%2C+Haryana%2C+India"
+           target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21 s-6.5 -6.2 -6.5 -11.2 a6.5 6.5 0 0 1 13 0 C18.5 14.8 12 21 12 21Z" /><circle cx="12" cy="9.8" r="2.4" /></svg>
+          <span>Get Directions</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4 h6 v6 M20 4 L11 13 M18 14 v5 a1 1 0 0 1 -1 1 H5 a1 1 0 0 1 -1 -1 V7 a1 1 0 0 1 1 -1 h5" /></svg>
+        </a>
+        <a class="btn-directions btn-calendar" id="calBtn" href="/reception.ics" download="Hitesh-Shivangi-Reception.ics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 9.5 H20.5 M8 3 V6.5 M16 3 V6.5 M12 12.5 v5 M9.5 15 h5" /></svg>
+          <span>Add to Calendar</span>
+        </a>
+        </div>
+      </div>
+      <div class="fade-bottom"></div>
+    </section>
+
+    <!-- =================================================================
+         SCREEN 7 · CLOSING — img/closing-palace-arch.jpg (+ -mobile)
+         ================================================================= -->
+    <section id="closing" class="section" aria-label="Closing">
+      <div class="bg-art">
+        <div class="parallax" data-parallax="0.08">
+          <picture>
+            <source media="(max-aspect-ratio: 4/5)"
+              srcset="/.netlify/images?url=/img/closing-palace-arch-mobile.jpg&amp;w=720&amp;fm=webp&amp;q=78 720w,
+                      /.netlify/images?url=/img/closing-palace-arch-mobile.jpg&amp;w=1080&amp;fm=webp&amp;q=78 1080w,
+                      /.netlify/images?url=/img/closing-palace-arch-mobile.jpg&amp;w=1536&amp;fm=webp&amp;q=78 1536w"
+              sizes="100vw" />
+            <img src="/.netlify/images?url=/img/closing-palace-arch.jpg&amp;w=1600&amp;fm=webp&amp;q=78"
+              srcset="/.netlify/images?url=/img/closing-palace-arch.jpg&amp;w=1000&amp;fm=webp&amp;q=78 1000w,
+                      /.netlify/images?url=/img/closing-palace-arch.jpg&amp;w=1600&amp;fm=webp&amp;q=78 1600w,
+                      /.netlify/images?url=/img/closing-palace-arch.jpg&amp;w=2400&amp;fm=webp&amp;q=78 2400w"
+              sizes="100vw" alt="A dreamy sunset lake seen through an ornate palace arch hung with blossoms" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+      </div>
+      <div class="fade-top"></div>
+
+      <div class="closing-inner">
+        <p class="closing-line reveal">We can't wait to<br />celebrate with you.</p>
+        <svg class="divider reveal d1" style="margin-top:1rem;width:min(190px,50vw)" viewBox="0 0 240 26" aria-hidden="true"><use href="#orn-divider" /></svg>
+        <h2 class="closing-names font-script reveal d2">
+          <span class="n1">Hitesh &amp;</span>
+          <span class="n2">Shivangi</span>
+        </h2>
+      </div>
+    </section>
+  </main>
+
+  <!-- Background music: self-hosted so it plays reliably on every phone.
+       Starts on the "Tap to open" gesture (required by iOS/Android autoplay rules). -->
+  <audio id="bgMusic" src="/audio/moh-moh-ke-dhaage.mp3" loop preload="auto" playsinline></audio>
+  <button class="music-btn" id="musicBtn" type="button" aria-label="Play music" aria-pressed="false">
+    <svg class="ico-off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 17.5V5.8l11-2.3v11.7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="2.6"/><circle cx="17.5" cy="15.2" r="2.6"/></svg>
+    <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="music-label" id="musicLabel">Tap for music</span>
+  </button>
+
+  <script>
+  (() => {
+    'use strict';
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const root = document.documentElement;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
+    /* =================================================================
+       FALLING PETALS — one lightweight canvas for the whole page
+       ================================================================= */
+    const Petals = (() => {
+      const canvas = document.getElementById('petals');
+      const ctx = canvas.getContext('2d');
+      const palette = [['#fbe3e4', '#e7a3b0'], ['#fbe9e6', '#d98d9c'], ['#f8d3d6', '#c9788a'], ['#fff0ec', '#e9b2b5'], ['#f6dcd2', '#dca08f']];
+      const sprites = palette.map(([a, b]) => {
+        const s = document.createElement('canvas'); s.width = s.height = 48;
+        const g = s.getContext('2d'); g.translate(24, 24);
+        const grad = g.createRadialGradient(-4, -7, 2, 0, 0, 22);
+        grad.addColorStop(0, a); grad.addColorStop(1, b);
+        g.fillStyle = grad; g.beginPath();
+        g.moveTo(0, -20); g.bezierCurveTo(15, -15, 15, 8, 0, 20); g.bezierCurveTo(-15, 8, -15, -15, 0, -20); g.fill();
+        g.strokeStyle = 'rgba(255,255,255,.4)'; g.lineWidth = 1;
+        g.beginPath(); g.moveTo(0, -15); g.quadraticCurveTo(2.5, 0, 0, 15); g.stroke();
+        return s;
+      });
+      let W = 0, H = 0, dpr = 1, list = [], ambientTarget = 0, running = false, last = 0;
+
+      function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        W = window.innerWidth; H = window.innerHeight;
+        canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      const rand = (a, b) => a + Math.random() * (b - a);
+
+      function ambientPetal(initial) {
+        return {
+          x: rand(-20, W + 20), y: initial ? rand(-H, H) : rand(-80, -20),
+          vx: rand(-.15, .25), vy: rand(.35, .8), size: rand(9, 16),
+          rot: rand(0, 6.28), vr: rand(-.02, .02), flip: rand(0, 6.28), vflip: rand(.02, .05),
+          sway: rand(0, 6.28), swaySpeed: rand(.01, .025), swayAmp: rand(.3, .8),
+          alpha: rand(.55, .85), sprite: sprites[(Math.random() * sprites.length) | 0], ambient: true,
+        };
+      }
+
+      function burst(cx, cy, count) {
+        for (let i = 0; i < count; i++) {
+          const a = rand(0, Math.PI * 2), sp = rand(1.2, 4.6);
+          list.push({
+            x: cx + rand(-30, 30), y: cy + rand(-40, 40),
+            vx: Math.cos(a) * sp, vy: Math.sin(a) * sp * .7 - .8, size: rand(6, 11), grow: rand(1.004, 1.012), maxSize: rand(16, 30),
+            rot: rand(0, 6.28), vr: rand(-.05, .05), flip: rand(0, 6.28), vflip: rand(.03, .08),
+            sway: rand(0, 6.28), swaySpeed: rand(.02, .04), swayAmp: rand(.2, .6),
+            alpha: 1, life: rand(170, 280), sprite: sprites[(Math.random() * sprites.length) | 0], ambient: false,
+          });
+        }
+        start();
+      }
+
+      function setAmbient(n) { ambientTarget = n; while (list.filter(p => p.ambient).length < n) list.push(ambientPetal(false)); start(); }
+
+      function start() { if (!running) { running = true; last = performance.now(); requestAnimationFrame(frame); } }
+
+      function frame(now) {
+        if (document.hidden) { running = false; return; }
+        const dt = Math.min((now - last) / 16.67, 3); last = now;
+        ctx.clearRect(0, 0, W, H);
+        for (let i = list.length - 1; i >= 0; i--) {
+          const p = list[i];
+          p.sway += p.swaySpeed * dt; p.rot += p.vr * dt; p.flip += p.vflip * dt;
+          if (p.ambient) {
+            p.x += (p.vx + Math.sin(p.sway) * p.swayAmp) * dt; p.y += p.vy * dt;
+            if (p.y > H + 30 || p.x < -60 || p.x > W + 60) list[i] = ambientPetal(false);
+          } else {
+            p.vx *= Math.pow(.985, dt); p.vy = p.vy * Math.pow(.985, dt) + .025 * dt;
+            p.x += (p.vx + Math.sin(p.sway) * p.swayAmp) * dt; p.y += p.vy * dt;
+            if (p.size < p.maxSize) p.size *= Math.pow(p.grow, dt);
+            p.life -= dt; p.alpha = Math.max(0, Math.min(1, p.life / 70));
+            if (p.life <= 0 || p.y > H + 40) { list.splice(i, 1); continue; }
+          }
+          ctx.save();
+          ctx.globalAlpha = p.alpha;
+          ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+          const s = p.size / 40;
+          ctx.scale(s * (0.35 + 0.65 * Math.abs(Math.cos(p.flip))), s);
+          ctx.drawImage(p.sprite, -24, -24);
+          ctx.restore();
+        }
+        if (list.length) requestAnimationFrame(frame); else running = false;
+      }
+
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      document.addEventListener('visibilitychange', () => { if (!document.hidden && list.length) start(); });
+      return { burst, setAmbient };
+    })();
+
+    /* =================================================================
+       OPENING COVER — doors, curtains, light, then reveal the hero
+       ================================================================= */
+    const intro = document.getElementById('intro');
+    const openBtn = document.getElementById('openBtn');
+    const blockScroll = (e) => { if (intro && !intro.classList.contains('done')) e.preventDefault(); };
+    window.addEventListener('touchmove', blockScroll, { passive: false });
+    window.addEventListener('wheel', blockScroll, { passive: false });
+    let opened = false;
+
+    /* =================================================================
+       BACKGROUND MUSIC — starts on the opening tap, gentle fade-in,
+       pauses while the tab/app is in the background.
+       ================================================================= */
+    const Music = (() => {
+      const audio = document.getElementById('bgMusic');
+      const btn = document.getElementById('musicBtn');
+      const label = document.getElementById('musicLabel');
+      const VOLUME = 0.75;
+      let wanted = false, fadeTimer = 0, hintTimer = 0;
+
+      const ui = (on) => {
+        btn.classList.toggle('playing', on);
+        btn.setAttribute('aria-pressed', String(on));
+        btn.setAttribute('aria-label', on ? 'Pause music' : 'Play music');
+        label.textContent = on ? 'Music on' : 'Tap for music';
+      };
+      const fadeTo = (target, ms, done) => {
+        clearInterval(fadeTimer);
+        const from = audio.volume, t0 = performance.now();
+        fadeTimer = setInterval(() => {
+          const k = Math.min(1, (performance.now() - t0) / ms);
+          try { audio.volume = from + (target - from) * k; } catch (_) {}
+          if (k >= 1) { clearInterval(fadeTimer); if (done) done(); }
+        }, 40);
+      };
+      const hint = () => {
+        btn.classList.add('hint');
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(() => btn.classList.remove('hint'), 4200);
+      };
+      function play() {
+        wanted = true;
+        try { audio.volume = 0; } catch (_) {}
+        const p = audio.play();
+        fadeTo(VOLUME, 2600);
+        if (p && p.catch) p.catch(() => { wanted = false; ui(false); if (btn.classList.contains('show')) hint(); });
+      }
+      function pause() { wanted = false; fadeTo(0, 450, () => audio.pause()); }
+
+      audio.addEventListener('playing', () => ui(true));
+      audio.addEventListener('pause', () => ui(false));
+      btn.addEventListener('click', () => { btn.classList.remove('hint'); wanted ? pause() : play(); });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { if (!audio.paused) { clearInterval(fadeTimer); audio.pause(); } }
+        else if (wanted && audio.paused) audio.play().catch(() => {});
+      });
+      if ('mediaSession' in navigator && window.MediaMetadata) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'Moh Moh Ke Dhaage', album: 'Hitesh & Shivangi · Wedding Reception',
+          artwork: [{ src: '/.netlify/images?url=/img/hero-palace-river-mobile.jpg&w=512&h=512&fit=cover&fm=jpg', sizes: '512x512', type: 'image/jpeg' }],
+        });
+      }
+      return {
+        play,
+        show() { btn.classList.add('show'); if (!wanted) hint(); },
+      };
+    })();
+
+    function openInvitation() {
+      if (opened) return; opened = true;
+      Music.play(); // must run inside the tap gesture for mobile autoplay rules
+      intro.classList.add('opening');
+      const t = reduceMotion ? 0.4 : 1;
+
+      // Petals float out through the doorway as the doors part
+      if (!reduceMotion) {
+        setTimeout(() => {
+          const r = document.getElementById('doorWrap').getBoundingClientRect();
+          Petals.burst(r.left + r.width / 2, r.top + r.height * .45, window.innerWidth < 640 ? 34 : 52);
+        }, 750);
+        setTimeout(() => { const r = document.getElementById('doorWrap').getBoundingClientRect(); Petals.burst(r.left + r.width / 2, r.top + r.height * .5, 18); }, 1500);
+      }
+      // Start the hero entrance underneath while the light floods the screen
+      setTimeout(() => document.body.classList.add('hero-in'), 2900 * t);
+      setTimeout(() => {
+        intro.classList.add('done');
+        root.classList.remove('is-locked');
+        window.removeEventListener('touchmove', blockScroll);
+        window.removeEventListener('wheel', blockScroll);
+        window.scrollTo(0, 0);
+        if (!reduceMotion) Petals.setAmbient(window.innerWidth < 640 ? 11 : 20);
+        Music.show();
+      }, 3350 * t);
+      // Remove the overlay completely once it has faded
+      setTimeout(() => intro.remove(), 3350 * t + 1000);
+    }
+    openBtn.addEventListener('click', openInvitation);
+    window.addEventListener('keydown', (e) => { if (!opened && (e.key === 'Enter' || e.key === ' ') && document.activeElement !== openBtn) { e.preventDefault(); openInvitation(); } });
+
+    /* Add to Calendar — Apple devices open the .ics natively; others use Google Calendar */
+    (() => {
+      const cal = document.getElementById('calBtn');
+      if (!cal || /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) return;
+      const q = new URLSearchParams({
+        action: 'TEMPLATE',
+        text: 'Wedding Reception · Hitesh & Shivangi',
+        dates: '20261128T133000Z/20261128T173000Z',
+        details: 'With hearts full of joy, we invite you to celebrate with us. 7:00 PM onwards.',
+        location: 'Hotel Golden Orchid, Kalka Chowk, New Vita Enclave Road, Ambala City, Haryana, India',
+      });
+      cal.href = 'https://calendar.google.com/calendar/render?' + q.toString();
+      cal.removeAttribute('download');
+      cal.target = '_blank'; cal.rel = 'noopener noreferrer';
+    })();
+
+    /* =================================================================
+       SCROLL REVEALS + SUBTLE PARALLAX
+       ================================================================= */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+      }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
+      revealEls.forEach((el) => io.observe(el));
+    } else revealEls.forEach((el) => el.classList.add('is-visible'));
+
+    const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
+    if (!reduceMotion && parallaxEls.length) {
+      let ticking = false;
+      const update = () => {
+        const vh = window.innerHeight;
+        parallaxEls.forEach((el) => {
+          const sec = el.closest('section').getBoundingClientRect();
+          if (sec.bottom < -50 || sec.top > vh + 50) return;
+          const speed = parseFloat(el.dataset.parallax) || .1;
+          const offset = (sec.top + sec.height / 2 - vh / 2) * speed * -0.5;
+          el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+        });
+        ticking = false;
+      };
+      window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    }
+
+    /* =================================================================
+       SCRATCH THE DATE — heart-shaped HTML5 canvas
+       ================================================================= */
+    (() => {
+      const wrap = document.getElementById('heartWrap');
+      const canvas = document.getElementById('scratch');
+      const hint = document.getElementById('scratchHint');
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      const heart = new Path2D(document.getElementById('heart-path').getAttribute('d'));
+      const REVEAL_AT = 0.5;
+      let cssW = 0, dpr = 1, brush = 30, samples = [], drawing = false, lastPt = null, moves = 0, revealed = false;
+
+      // Small deterministic random so the texture is identical on every redraw
+      let seed = 7;
+      const srand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+      function paintCover() {
+        const cw = canvas.width, ch = canvas.height;
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.clearRect(0, 0, cw, ch);
+        ctx.setTransform(cw / 100, 0, 0, ch / 92, 0, 0); // draw in the heart's 100×92 coordinate space
+
+        // Deep wine velvet body
+        const body = ctx.createRadialGradient(40, 30, 3, 50, 46, 64);
+        body.addColorStop(0, '#93405a'); body.addColorStop(.5, '#6e2238'); body.addColorStop(1, '#45111f');
+        ctx.fillStyle = body; ctx.fill(heart);
+
+        ctx.save(); ctx.clip(heart);
+        // Vintage speckle texture
+        seed = 7;
+        for (let i = 0; i < 1400; i++) {
+          ctx.fillStyle = srand() > .5 ? 'rgba(255,214,196,.07)' : 'rgba(25,0,8,.14)';
+          ctx.beginPath(); ctx.arc(srand() * 100, srand() * 92, srand() * .45 + .08, 0, Math.PI * 2); ctx.fill();
+        }
+        // Brushed velvet strokes
+        ctx.lineWidth = .18;
+        for (let i = 0; i < 90; i++) {
+          const x = srand() * 100, y = srand() * 92;
+          ctx.strokeStyle = `rgba(255,220,210,${(srand() * .06 + .02).toFixed(3)})`;
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + 4, y + srand() * 3 - 1.5, x + 9, y + srand() * 2 - 1); ctx.stroke();
+        }
+        // Soft sheen
+        const sheen = ctx.createLinearGradient(10, 6, 70, 70);
+        sheen.addColorStop(0, 'rgba(255,230,220,.20)'); sheen.addColorStop(.45, 'rgba(255,230,220,0)');
+        ctx.fillStyle = sheen; ctx.fillRect(0, 0, 100, 92);
+
+        // Rose-gold inner dotted border
+        ctx.save(); ctx.translate(50, 46); ctx.scale(.87, .87); ctx.translate(-50, -46);
+        ctx.setLineDash([1.1, 1.5]); ctx.lineWidth = .5; ctx.strokeStyle = 'rgba(232,180,158,.8)'; ctx.stroke(heart);
+        ctx.restore();
+        ctx.save(); ctx.translate(50, 46); ctx.scale(.8, .8); ctx.translate(-50, -46);
+        ctx.lineWidth = .25; ctx.strokeStyle = 'rgba(232,180,158,.45)'; ctx.stroke(heart);
+        ctx.restore();
+
+        // Rose-gold filigree motifs: lotus in the centre and curls in the lobes
+        ctx.strokeStyle = 'rgba(236,188,160,.55)'; ctx.fillStyle = 'rgba(236,188,160,.22)'; ctx.lineWidth = .4; ctx.setLineDash([]);
+        const lotus = (x, y, s) => {
+          ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+          ctx.beginPath(); ctx.moveTo(0, -6); ctx.bezierCurveTo(-3, -2, -3, 2, 0, 5); ctx.bezierCurveTo(3, 2, 3, -2, 0, -6); ctx.fill(); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(0, 5); ctx.bezierCurveTo(-6, 4, -9, 0, -10, -3); ctx.bezierCurveTo(-6, -2, -3, 1, 0, 5); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(0, 5); ctx.bezierCurveTo(6, 4, 9, 0, 10, -3); ctx.bezierCurveTo(6, -2, 3, 1, 0, 5); ctx.stroke();
+          ctx.restore();
+        };
+        lotus(50, 44, 1.1);
+        lotus(50, 74, .6);
+        const curl = (x, y, dir) => {
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x + 5 * dir, y - 5, x + 11 * dir, y - 1, x + 8 * dir, y + 3);
+          ctx.bezierCurveTo(x + 6 * dir, y + 5, x + 3.5 * dir, y + 3, x + 5 * dir, y + 1.5); ctx.stroke();
+        };
+        curl(16, 26, 1); curl(84, 26, -1); curl(24, 48, 1); curl(76, 48, -1);
+        [[28, 14], [72, 14], [14, 36], [86, 36], [36, 64], [64, 64]].forEach(([x, y]) => { ctx.beginPath(); ctx.arc(x, y, .7, 0, Math.PI * 2); ctx.fill(); });
+        ctx.restore();
+
+        // Antique-gold outline
+        const gold = ctx.createLinearGradient(0, 0, 100, 92);
+        gold.addColorStop(0, '#a87b3f'); gold.addColorStop(.35, '#f1dca6'); gold.addColorStop(.6, '#b8925a'); gold.addColorStop(1, '#e3c88e');
+        ctx.lineWidth = 1.7; ctx.strokeStyle = gold; ctx.stroke(heart);
+
+        // Switch to CSS-pixel space for scratching
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.lineWidth = brush; ctx.fillStyle = '#000'; ctx.strokeStyle = '#000';
+      }
+
+      // Sample points that lie inside the heart, used to measure scratched area
+      function buildSamples() {
+        const { width: cw, height: ch } = canvas;
+        const data = ctx.getImageData(0, 0, cw, ch).data;
+        const step = Math.max(4, Math.round(5 * dpr));
+        samples = [];
+        for (let y = 0; y < ch; y += step) for (let x = 0; x < cw; x += step) {
+          const i = (y * cw + x) * 4 + 3;
+          if (data[i] > 200) samples.push(i);
+        }
+      }
+
+      function setup() {
+        if (revealed) return;
+        const r = wrap.getBoundingClientRect();
+        if (!r.width) return;
+        cssW = r.width;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(r.width * dpr);
+        canvas.height = Math.round(r.height * dpr);
+        brush = Math.max(26, r.width * .13);
+        paintCover();
+        buildSamples();
+      }
+
+      function scratchedRatio() {
+        if (!samples.length) return 0;
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        let cleared = 0;
+        for (let k = 0; k < samples.length; k++) if (data[samples[k]] < 90) cleared++;
+        return cleared / samples.length;
+      }
+
+      function point(e) {
+        const r = canvas.getBoundingClientRect();
+        return { x: e.clientX - r.left, y: e.clientY - r.top };
+      }
+
+      function scratchTo(p) {
+        if (lastPt) { ctx.beginPath(); ctx.moveTo(lastPt.x, lastPt.y); ctx.lineTo(p.x, p.y); ctx.stroke(); }
+        ctx.beginPath(); ctx.arc(p.x, p.y, brush / 2, 0, Math.PI * 2); ctx.fill();
+        lastPt = p;
+      }
+
+      function check() { if (!revealed && scratchedRatio() >= REVEAL_AT) reveal(); }
+
+      function reveal() {
+        revealed = true; drawing = false;
+        canvas.classList.add('gone');
+        hint.classList.add('hide');
+        wrap.classList.add('revealed');
+        // A little shimmer of gold sparkles around the heart
+        if (!reduceMotion) for (let i = 0; i < 16; i++) {
+          const s = document.createElement('span'); s.className = 'sparkle';
+          const a = (i / 16) * Math.PI * 2;
+          s.style.left = `${50 + Math.cos(a) * 30}%`; s.style.top = `${46 + Math.sin(a) * 28}%`;
+          s.style.setProperty('--dx', `${Math.cos(a) * 40}px`); s.style.setProperty('--dy', `${Math.sin(a) * 40}px`);
+          s.style.animationDelay = `${(i % 4) * .08}s`;
+          wrap.appendChild(s); setTimeout(() => s.remove(), 1800);
+        }
+        setTimeout(() => { canvas.style.display = 'none'; }, 1100);
+      }
+
+      canvas.addEventListener('pointerdown', (e) => {
+        if (revealed) return;
+        e.preventDefault();
+        drawing = true; lastPt = null; hint.classList.add('hide');
+        try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
+        scratchTo(point(e));
+      });
+      canvas.addEventListener('pointermove', (e) => {
+        if (!drawing || revealed) return;
+        e.preventDefault();
+        // Use coalesced events for smooth strokes on fast finger swipes
+        const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+        (evs.length ? evs : [e]).forEach((ev) => scratchTo(point(ev)));
+        if (++moves % 6 === 0) check();
+      });
+      const end = () => { if (!drawing) return; drawing = false; lastPt = null; check(); };
+      canvas.addEventListener('pointerup', end);
+      canvas.addEventListener('pointercancel', end);
+      canvas.addEventListener('lostpointercapture', end);
+      // Stop iOS from scrolling the page while scratching
+      canvas.addEventListener('touchstart', (e) => { if (!revealed) e.preventDefault(); }, { passive: false });
+      canvas.addEventListener('touchmove', (e) => { if (!revealed) e.preventDefault(); }, { passive: false });
+
+      // Redraw only when the heart's width really changes (ignore mobile URL-bar resizes)
+      let rt;
+      window.addEventListener('resize', () => {
+        clearTimeout(rt);
+        rt = setTimeout(() => { const w = wrap.getBoundingClientRect().width; if (Math.abs(w - cssW) > 1) setup(); }, 150);
+      }, { passive: true });
+
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(setup); else setup();
+      window.addEventListener('load', () => { if (!cssW) setup(); });
+      setup();
+    })();
+
+    /* =================================================================
+       LIVE COUNTDOWN — 28 November 2026, 7:00 PM IST (UTC+05:30)
+       ================================================================= */
+    (() => {
+      const TARGET = Date.parse('2026-11-28T19:00:00+05:30');
+      const els = {
+        d: document.getElementById('cdDays'), h: document.getElementById('cdHours'),
+        m: document.getElementById('cdMinutes'), s: document.getElementById('cdSeconds'),
+      };
+      const row = document.getElementById('countRow');
+      const done = document.getElementById('countDone');
+      const pad = (n) => String(n).padStart(2, '0');
+      let timer;
+      const set = (el, v) => { if (el.textContent !== v) el.textContent = v; };
+
+      function tick() {
+        const diff = TARGET - Date.now();
+        if (diff <= 0) {
+          clearInterval(timer);
+          row.hidden = true; done.hidden = false;
+          return;
+        }
+        const total = Math.floor(diff / 1000);
+        set(els.d, pad(Math.floor(total / 86400)));
+        set(els.h, pad(Math.floor(total / 3600) % 24));
+        set(els.m, pad(Math.floor(total / 60) % 60));
+        set(els.s, pad(total % 60));
+      }
+      tick();
+      timer = setInterval(tick, 1000);
+    })();
+  })();
+  </script>
+</body>
+</html>
